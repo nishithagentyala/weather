@@ -47,6 +47,7 @@ const Index = () => {
   const changelocation = () => {
     document.querySelector(".editlocation").classList.add("hide");
   };
+
   const submitlocation = () => {
     document.querySelector(".editlocation").classList.remove("hide");
     const name = document.querySelector("input").value;
@@ -102,7 +103,7 @@ const Index = () => {
           document.querySelector("body").classList.add("haze");
         if (data.weather[0].description === "clear sky")
           document.querySelector("body").classList.add("clear");
-        if (data.weather[0].description === "broken clouds")
+        if (data.weather[0].main === "Clouds")
           document.querySelector("body").classList.add("cloudy");
       });
   };
