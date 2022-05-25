@@ -53,7 +53,7 @@ const Index = () => {
     document.querySelector("input").value = "";
 
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=cd8ba3aac0daee3d19f3b1549a2c32e4`
+      `https://api.openweathermap.org/data/2.5/weather?q=${name}&appid=cd8ba3aac0daee3d19f3b1549a2c32e4`
     )
       .then((res) => res.json())
       .then((data) => {
