@@ -64,11 +64,11 @@ button {
   display: block;
 }
 .haze {
-  background-image: url(./haze.jpg);
+  background-image: url(./images/haze.jpg);
 }
 .clear {
-  background-image: url(./clear.jpg);
+  background-image: url(./images/clear.jpg);
 }
 .cloudy {
-  background-image: url(./cloudy.jpg);
+  background-image: url(./images/cloudy.jpg);
 }
