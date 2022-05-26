@@ -5,40 +5,40 @@ const Index = () => {
   const yr = today.getFullYear();
   switch (mon) {
     case 0:
-      mon = "JAN";
+      mon = "Jan";
       break;
     case 1:
-      mon = "FEB";
+      mon = "Feb";
       break;
     case 2:
-      mon = "MAR";
+      mon = "Mar";
       break;
     case 3:
-      mon = "APR";
+      mon = "Apr";
       break;
     case 4:
-      mon = "MAY";
+      mon = "May";
       break;
     case 5:
-      mon = "JUNE";
+      mon = "June";
       break;
     case 6:
-      mon = "JULY";
+      mon = "July";
       break;
     case 7:
-      mon = "AUG";
+      mon = "Aug";
       break;
     case 8:
-      mon = "SEP";
+      mon = "Sep";
       break;
     case 9:
-      mon = "OCT";
+      mon = "Oct";
       break;
     case 10:
-      mon = "NOV";
+      mon = "Nov";
       break;
     case 11:
-      mon = "DEC";
+      mon = "Dec";
       break;
     default:
       break;
@@ -50,6 +50,7 @@ const Index = () => {
 
   const submitlocation = () => {
     document.querySelector(".editlocation").classList.remove("hide");
+    document.querySelector(".right").classList.add("show");
     const name = document.querySelector("input").value;
     document.querySelector("input").value = "";
 
@@ -59,7 +60,8 @@ const Index = () => {
       .then((res) => res.json())
       .then((data) => {
         document.querySelector(".cityname").innerHTML = data.name;
-        document.querySelector(".climate").innerHTML = data.weather[0].main;
+        document.querySelector(".climate").innerHTML =
+          data.weather[0].description;
         document.querySelector(".temp").innerHTML = `${(
           data.main.temp / 10
         ).toFixed(2)}&#176C`;
@@ -99,12 +101,21 @@ const Index = () => {
         </h3>`;
         document.querySelector(".date").innerHTML = mon + " " + date + " " + yr;
         console.log(data);
-        if (data.weather[0].description === "haze")
+        if (data.weather[0].description === "haze") {
           document.querySelector("body").classList.add("haze");
-        if (data.weather[0].description === "clear sky")
+          document.querySelector("body").classList.remove("clear");
+          document.querySelector("body").classList.remove("cloudy");
+        }
+        if (data.weather[0].description === "clear sky") {
+          document.querySelector("body").classList.remove("haze");
           document.querySelector("body").classList.add("clear");
-        if (data.weather[0].main === "Clouds")
+          document.querySelector("body").classList.remove("cloudy");
+        }
+        if (data.weather[0].main === "Clouds") {
+          document.querySelector("body").classList.remove("haze");
           document.querySelector("body").classList.add("cloudy");
+          document.querySelector("body").classList.remove("clear");
+        }
       });
   };
   return (
@@ -113,7 +124,7 @@ const Index = () => {
         <i class="icon"></i>
         <h2 class="climate"></h2>
         <h2 class="cityname"></h2>
-        <h2>
+        <h2 class="temp">
           <span class="temp"></span>
         </h2>
         <span class="changelocation" onClick={changelocation}>
