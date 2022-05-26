@@ -99,6 +99,7 @@ button {
     display: none;
     left: 5%;
     right: 5%;
+    color: wheat;
   }
   .right p {
     margin: 12px;
@@ -161,17 +162,17 @@ button {
   }
 
   .haze {
-    background-image: url(./images/haze1.jpg);
+    background-image: url(./images/1.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
   }
   .clear {
-    background-image: url(./images/clear1.jpg);
+    background-image: url(./images/3.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
   .cloudy {
-    background-image: url(./images/cloudy2.jpg);
+    background-image: url(./images/2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
